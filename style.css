@@ -1,7 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap');
+
+:root {
+  --brandColor: rgb(73, 156, 161);
+  --accentColor: rgb(241, 199, 11);
+  font-family: 'Lato', sans-serif;
+
+}
+
 * {
   padding: 0;
   margin: 0;
-  font-family: "Times New Roman", Times, serif;
 }
 
 html {
@@ -9,17 +17,98 @@ html {
   min-width: 100%;
 }
 
-header h1 {
+header {
   display: flex;
-  justify-content: center;
+  justify-content: left;
+  background-color: var(--brandColor);
+  height: 3rem;
   align-items: center;
-  background-color: tomato;
+  margin-bottom: 1rem;
 }
+
+header h1 {
+  margin-left: 20vw;
+}
+
+main {
+  max-width: 60vw;
+  margin: auto;
+}
+
+
+
+
 
 main p {
   font-weight: 1000;
-  font-size: 2em;
   display: flex;
   justify-content: flex-start;
   align-items: center;
+}
+
+.basic-grid {
+  display: grid;
+  gap: 2rem;
+
+  /* 1 too skinny, too much code */
+  /* grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr; */
+
+  /* 2 cleaner code */
+  /* grid-template-columns: repeat(12, 1fr); */
+
+  /* 3  better sizing, but overflows */
+  /* grid-template-columns: repeat(12, minmax(240px, 1fr)); */
+
+  /* 4 final */
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+}
+
+.card {
+ 
+  box-shadow: rgba(3, 8, 20, 0.1) 0px 0.15rem 0.5rem, rgba(2, 8, 20, 0.1) 0px 0.075rem 0.175rem;
+  width: 100%;
+  border-radius: 4px;
+  transition: all 500ms;
+  /*overflow: hidden;*/
+  min-height: 100px;
+  background-color: white;
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+a.card {
+  text-decoration: none;
+  color: black;
+}
+
+.card:hover {
+  box-shadow: rgba(2, 8, 20, 0.1) 0px 0.35em 1.175em, rgba(2, 8, 20, 0.08) 0px 0.175em 0.5em;
+  transform: translateY(-3px) scale(1.1);
+}
+
+.card img {
+width: 100%;
+height: 15rem;
+object-fit: cover;
+}
+
+.cardwrapper {
+  padding: 4%;
+}
+
+@media (max-width: 500px) {
+  main {
+    max-width: 80vw;
+    margin: auto;
+  }
+  header {
+    margin-left: none;
+    justify-content: center;
+    align-items: center;
+  }
+  header h1 {
+    margin-left: 0;
+  }
 }
