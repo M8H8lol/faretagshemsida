@@ -6,6 +6,10 @@
   font-family: 'Lato', sans-serif;
 
 }
+main p {
+font-size: large;
+}
+
 
 * {
   padding: 0;
